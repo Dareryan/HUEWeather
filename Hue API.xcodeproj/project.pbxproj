@@ -1,0 +1,495 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4512121B190EAADB00C5B68C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4512121A190EAADB00C5B68C /* Foundation.framework */; };
+		4512121D190EAADB00C5B68C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4512121C190EAADB00C5B68C /* CoreGraphics.framework */; };
+		4512121F190EAADB00C5B68C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4512121E190EAADB00C5B68C /* UIKit.framework */; };
+		45121221190EAADB00C5B68C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45121220190EAADB00C5B68C /* CoreData.framework */; };
+		45121227190EAADB00C5B68C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45121225190EAADB00C5B68C /* InfoPlist.strings */; };
+		45121229190EAADB00C5B68C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45121228190EAADB00C5B68C /* main.m */; };
+		4512122D190EAADB00C5B68C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4512122C190EAADB00C5B68C /* AppDelegate.m */; };
+		45121230190EAADB00C5B68C /* Hue_API.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4512122E190EAADB00C5B68C /* Hue_API.xcdatamodeld */; };
+		45121232190EAADB00C5B68C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45121231190EAADB00C5B68C /* Images.xcassets */; };
+		45121239190EAADB00C5B68C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45121238190EAADB00C5B68C /* XCTest.framework */; };
+		4512123A190EAADB00C5B68C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4512121A190EAADB00C5B68C /* Foundation.framework */; };
+		4512123B190EAADB00C5B68C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4512121E190EAADB00C5B68C /* UIKit.framework */; };
+		4512123C190EAADB00C5B68C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45121220190EAADB00C5B68C /* CoreData.framework */; };
+		45121244190EAADB00C5B68C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45121242190EAADB00C5B68C /* InfoPlist.strings */; };
+		45121246190EAADB00C5B68C /* Hue_APITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45121245190EAADB00C5B68C /* Hue_APITests.m */; };
+		45121251190EAB6700C5B68C /* WeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 45121250190EAB6700C5B68C /* WeatherAPI.m */; };
+		45121253190EABE900C5B68C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45121252190EABE900C5B68C /* CoreLocation.framework */; };
+		45121257190EC73900C5B68C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45121256190EC73900C5B68C /* Main.storyboard */; };
+		4512125A190EC76200C5B68C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45121259190EC76200C5B68C /* MainViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4512123D190EAADB00C5B68C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4512120F190EAADB00C5B68C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45121216190EAADB00C5B68C;
+			remoteInfo = "Hue API";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		45121217190EAADB00C5B68C /* Hue API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hue API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4512121A190EAADB00C5B68C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4512121C190EAADB00C5B68C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4512121E190EAADB00C5B68C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		45121220190EAADB00C5B68C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		45121224190EAADB00C5B68C /* Hue API-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hue API-Info.plist"; sourceTree = "<group>"; };
+		45121226190EAADB00C5B68C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		45121228190EAADB00C5B68C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4512122A190EAADB00C5B68C /* Hue API-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hue API-Prefix.pch"; sourceTree = "<group>"; };
+		4512122B190EAADB00C5B68C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4512122C190EAADB00C5B68C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4512122F190EAADB00C5B68C /* Hue_API.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hue_API.xcdatamodel; sourceTree = "<group>"; };
+		45121231190EAADB00C5B68C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		45121237190EAADB00C5B68C /* Hue APITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hue APITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45121238190EAADB00C5B68C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		45121241190EAADB00C5B68C /* Hue APITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hue APITests-Info.plist"; sourceTree = "<group>"; };
+		45121243190EAADB00C5B68C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		45121245190EAADB00C5B68C /* Hue_APITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Hue_APITests.m; sourceTree = "<group>"; };
+		4512124F190EAB6700C5B68C /* WeatherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAPI.h; sourceTree = "<group>"; };
+		45121250190EAB6700C5B68C /* WeatherAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAPI.m; sourceTree = "<group>"; };
+		45121252190EABE900C5B68C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		45121256190EC73900C5B68C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		45121258190EC76200C5B68C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		45121259190EC76200C5B68C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		45121214190EAADB00C5B68C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45121253190EABE900C5B68C /* CoreLocation.framework in Frameworks */,
+				4512121D190EAADB00C5B68C /* CoreGraphics.framework in Frameworks */,
+				45121221190EAADB00C5B68C /* CoreData.framework in Frameworks */,
+				4512121F190EAADB00C5B68C /* UIKit.framework in Frameworks */,
+				4512121B190EAADB00C5B68C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45121234190EAADB00C5B68C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45121239190EAADB00C5B68C /* XCTest.framework in Frameworks */,
+				4512123C190EAADB00C5B68C /* CoreData.framework in Frameworks */,
+				4512123B190EAADB00C5B68C /* UIKit.framework in Frameworks */,
+				4512123A190EAADB00C5B68C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4512120E190EAADB00C5B68C = {
+			isa = PBXGroup;
+			children = (
+				45121222190EAADB00C5B68C /* Hue API */,
+				4512123F190EAADB00C5B68C /* Hue APITests */,
+				45121219190EAADB00C5B68C /* Frameworks */,
+				45121218190EAADB00C5B68C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		45121218190EAADB00C5B68C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45121217190EAADB00C5B68C /* Hue API.app */,
+				45121237190EAADB00C5B68C /* Hue APITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45121219190EAADB00C5B68C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45121252190EABE900C5B68C /* CoreLocation.framework */,
+				4512121A190EAADB00C5B68C /* Foundation.framework */,
+				4512121C190EAADB00C5B68C /* CoreGraphics.framework */,
+				4512121E190EAADB00C5B68C /* UIKit.framework */,
+				45121220190EAADB00C5B68C /* CoreData.framework */,
+				45121238190EAADB00C5B68C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45121222190EAADB00C5B68C /* Hue API */ = {
+			isa = PBXGroup;
+			children = (
+				45121256190EC73900C5B68C /* Main.storyboard */,
+				4512122B190EAADB00C5B68C /* AppDelegate.h */,
+				4512122C190EAADB00C5B68C /* AppDelegate.m */,
+				45121258190EC76200C5B68C /* MainViewController.h */,
+				45121259190EC76200C5B68C /* MainViewController.m */,
+				4512124F190EAB6700C5B68C /* WeatherAPI.h */,
+				45121250190EAB6700C5B68C /* WeatherAPI.m */,
+				45121231190EAADB00C5B68C /* Images.xcassets */,
+				4512122E190EAADB00C5B68C /* Hue_API.xcdatamodeld */,
+				45121223190EAADB00C5B68C /* Supporting Files */,
+			);
+			path = "Hue API";
+			sourceTree = "<group>";
+		};
+		45121223190EAADB00C5B68C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45121224190EAADB00C5B68C /* Hue API-Info.plist */,
+				45121225190EAADB00C5B68C /* InfoPlist.strings */,
+				45121228190EAADB00C5B68C /* main.m */,
+				4512122A190EAADB00C5B68C /* Hue API-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4512123F190EAADB00C5B68C /* Hue APITests */ = {
+			isa = PBXGroup;
+			children = (
+				45121245190EAADB00C5B68C /* Hue_APITests.m */,
+				45121240190EAADB00C5B68C /* Supporting Files */,
+			);
+			path = "Hue APITests";
+			sourceTree = "<group>";
+		};
+		45121240190EAADB00C5B68C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45121241190EAADB00C5B68C /* Hue APITests-Info.plist */,
+				45121242190EAADB00C5B68C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45121216190EAADB00C5B68C /* Hue API */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45121249190EAADB00C5B68C /* Build configuration list for PBXNativeTarget "Hue API" */;
+			buildPhases = (
+				45121213190EAADB00C5B68C /* Sources */,
+				45121214190EAADB00C5B68C /* Frameworks */,
+				45121215190EAADB00C5B68C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hue API";
+			productName = "Hue API";
+			productReference = 45121217190EAADB00C5B68C /* Hue API.app */;
+			productType = "com.apple.product-type.application";
+		};
+		45121236190EAADB00C5B68C /* Hue APITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4512124C190EAADB00C5B68C /* Build configuration list for PBXNativeTarget "Hue APITests" */;
+			buildPhases = (
+				45121233190EAADB00C5B68C /* Sources */,
+				45121234190EAADB00C5B68C /* Frameworks */,
+				45121235190EAADB00C5B68C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4512123E190EAADB00C5B68C /* PBXTargetDependency */,
+			);
+			name = "Hue APITests";
+			productName = "Hue APITests";
+			productReference = 45121237190EAADB00C5B68C /* Hue APITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4512120F190EAADB00C5B68C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Dare Ryan";
+				TargetAttributes = {
+					45121236190EAADB00C5B68C = {
+						TestTargetID = 45121216190EAADB00C5B68C;
+					};
+				};
+			};
+			buildConfigurationList = 45121212190EAADB00C5B68C /* Build configuration list for PBXProject "Hue API" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4512120E190EAADB00C5B68C;
+			productRefGroup = 45121218190EAADB00C5B68C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45121216190EAADB00C5B68C /* Hue API */,
+				45121236190EAADB00C5B68C /* Hue APITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45121215190EAADB00C5B68C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45121257190EC73900C5B68C /* Main.storyboard in Resources */,
+				45121227190EAADB00C5B68C /* InfoPlist.strings in Resources */,
+				45121232190EAADB00C5B68C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45121235190EAADB00C5B68C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45121244190EAADB00C5B68C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45121213190EAADB00C5B68C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45121230190EAADB00C5B68C /* Hue_API.xcdatamodeld in Sources */,
+				45121251190EAB6700C5B68C /* WeatherAPI.m in Sources */,
+				4512122D190EAADB00C5B68C /* AppDelegate.m in Sources */,
+				4512125A190EC76200C5B68C /* MainViewController.m in Sources */,
+				45121229190EAADB00C5B68C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45121233190EAADB00C5B68C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45121246190EAADB00C5B68C /* Hue_APITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4512123E190EAADB00C5B68C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45121216190EAADB00C5B68C /* Hue API */;
+			targetProxy = 4512123D190EAADB00C5B68C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		45121225190EAADB00C5B68C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45121226190EAADB00C5B68C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		45121242190EAADB00C5B68C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45121243190EAADB00C5B68C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		45121247190EAADB00C5B68C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		45121248190EAADB00C5B68C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4512124A190EAADB00C5B68C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Hue API/Hue API-Prefix.pch";
+				INFOPLIST_FILE = "Hue API/Hue API-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4512124B190EAADB00C5B68C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Hue API/Hue API-Prefix.pch";
+				INFOPLIST_FILE = "Hue API/Hue API-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4512124D190EAADB00C5B68C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Hue API.app/Hue API";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Hue API/Hue API-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Hue APITests/Hue APITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		4512124E190EAADB00C5B68C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Hue API.app/Hue API";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Hue API/Hue API-Prefix.pch";
+				INFOPLIST_FILE = "Hue APITests/Hue APITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45121212190EAADB00C5B68C /* Build configuration list for PBXProject "Hue API" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45121247190EAADB00C5B68C /* Debug */,
+				45121248190EAADB00C5B68C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45121249190EAADB00C5B68C /* Build configuration list for PBXNativeTarget "Hue API" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4512124A190EAADB00C5B68C /* Debug */,
+				4512124B190EAADB00C5B68C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4512124C190EAADB00C5B68C /* Build configuration list for PBXNativeTarget "Hue APITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4512124D190EAADB00C5B68C /* Debug */,
+				4512124E190EAADB00C5B68C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4512122E190EAADB00C5B68C /* Hue_API.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4512122F190EAADB00C5B68C /* Hue_API.xcdatamodel */,
+			);
+			currentVersion = 4512122F190EAADB00C5B68C /* Hue_API.xcdatamodel */;
+			path = Hue_API.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4512120F190EAADB00C5B68C /* Project object */;
+}
