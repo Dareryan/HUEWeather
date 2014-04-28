@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "Constants.h"
 
 @interface MainViewController ()
 
@@ -21,27 +22,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self startDeterminingUserLocation];
-    
-   
+NSLog(@"%@", Wunderground_Key);
 }
 
 -(void)startDeterminingUserLocation
 {
-    if ([CLLocationManager authorizationStatus] == 3) {
-        self.locationManager = [[CLLocationManager alloc]init];
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        self.locationManager.distanceFilter = kCLDistanceFilterNone;
-        self.locationManager.delegate = self;
-        NSLog(@"%u",[CLLocationManager authorizationStatus]);
-    }
-    else{
-        UIAlertView *locAlert = [[UIAlertView alloc]initWithTitle:@"Locations Services Disabled" message:@"Please enable location services in settings to determine your zipcode for weather updates" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        locAlert.delegate = self;
-        [locAlert show];
-    }
-    
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
 }
 
@@ -51,10 +41,5 @@
     NSLog(@"%f %f", self.location.coordinate.latitude, self.location.coordinate.longitude);
     [self.locationManager stopUpdatingLocation];
 }
-
-
-
-
-
 
 @end

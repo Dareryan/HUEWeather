@@ -26,6 +26,7 @@
 		45121253190EABE900C5B68C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45121252190EABE900C5B68C /* CoreLocation.framework */; };
 		45121257190EC73900C5B68C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45121256190EC73900C5B68C /* Main.storyboard */; };
 		4512125A190EC76200C5B68C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45121259190EC76200C5B68C /* MainViewController.m */; };
+		45AD18FE190ED2DA00334A24 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AD18FD190ED2DA00334A24 /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		45121256190EC73900C5B68C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		45121258190EC76200C5B68C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		45121259190EC76200C5B68C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		45AD18FC190ED2DA00334A24 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		45AD18FD190ED2DA00334A24 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				45121256190EC73900C5B68C /* Main.storyboard */,
+				45AD18FC190ED2DA00334A24 /* Constants.h */,
+				45AD18FD190ED2DA00334A24 /* Constants.m */,
 				4512122B190EAADB00C5B68C /* AppDelegate.h */,
 				4512122C190EAADB00C5B68C /* AppDelegate.m */,
 				45121258190EC76200C5B68C /* MainViewController.h */,
@@ -271,6 +276,7 @@
 				4512122D190EAADB00C5B68C /* AppDelegate.m in Sources */,
 				4512125A190EC76200C5B68C /* MainViewController.m in Sources */,
 				45121229190EAADB00C5B68C /* main.m in Sources */,
+				45AD18FE190ED2DA00334A24 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +473,7 @@
 				4512124B190EAADB00C5B68C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4512124C190EAADB00C5B68C /* Build configuration list for PBXNativeTarget "Hue APITests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +482,7 @@
 				4512124E190EAADB00C5B68C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
