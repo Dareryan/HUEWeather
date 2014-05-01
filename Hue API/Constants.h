@@ -11,5 +11,6 @@
 @interface Constants : NSObject
 
 extern NSString *const Wunderground_Key;
+extern NSString *const HUEUserName;
 
 @end

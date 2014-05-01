@@ -10,7 +10,7 @@
 
 @interface HUEAPI : NSObject
 @property (strong, nonatomic) NSString *bridgeIP;
--(void)getBridgeIPAddressWithCompletion:(void (^)(NSString *))completion;
+-(void)getBridgeIPAddressWithCompletion:(void (^)())completion;
 -(void)checkBridgeAuthorizationStatusWithCompletion:(void (^)(NSString *))completion;
 -(void)authorizeNewUser;
 -(void)getListOfAvailableBulbsWithCompletion:(void (^)(NSArray *))completion;

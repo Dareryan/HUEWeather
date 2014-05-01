@@ -7,6 +7,7 @@
 //
 
 #import "HUEAPI.h"
+#import "Constants.h"
 
 @interface HUEAPI()
 
@@ -14,7 +15,7 @@
 
 @implementation HUEAPI
 
--(void)getBridgeIPAddressWithCompletion:(void (^)(NSString *))completion
+-(void)getBridgeIPAddressWithCompletion:(void (^)())completion
 {
     NSString *URLString = @"http://www.meethue.com/api/nupnp";
     NSURL *requestURL = [[NSURL alloc]initWithString:URLString];
@@ -24,15 +25,15 @@
         NSArray *JSONResponseArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         NSDictionary *JSONResponseDict = [JSONResponseArray lastObject];
         self.bridgeIP = JSONResponseDict[@"internalipaddress"];
-        completion(self.bridgeIP);
+        completion();
        }]resume];
 }
 
 -(void)checkBridgeAuthorizationStatusWithCompletion:(void (^)(NSString *))completion
 {
-    [self getBridgeIPAddressWithCompletion:^(NSString *IPAddress) {
+    [self getBridgeIPAddressWithCompletion:^() {
        
-        NSString *URLString = [NSString stringWithFormat:@"http://%@/api/HUEWeatherAPI", IPAddress];
+        NSString *URLString = [NSString stringWithFormat:@"http://%@/api/%@", self.bridgeIP, HUEUserName];
         NSURL *requestURL = [[NSURL alloc]initWithString:URLString];
         NSURLSession *session = [NSURLSession sharedSession];
         
@@ -53,7 +54,7 @@
 
 -(void)authorizeNewUser
 {
-    NSDictionary *newUserDict = @{@"devicetype":@"HUEWeatherAPI", @"username":@"HUEWeatherAPI"};
+    NSDictionary *newUserDict = @{@"devicetype":HUEUserName, @"username":HUEUserName};
     NSData *postData = [NSJSONSerialization dataWithJSONObject:newUserDict options:0 error:nil];
     NSString *URLString = [NSString stringWithFormat:@"http://%@/api", self.bridgeIP];
     NSURL *requestURL = [[NSURL alloc]initWithString:URLString];
@@ -67,13 +68,12 @@
 
 -(void)getListOfAvailableBulbsWithCompletion:(void (^)(NSArray *))completion
 {
-    NSString *URLString =[NSString stringWithFormat:@"http://%@/api/HUEWeatherAPI/lights", self.bridgeIP];
+    NSString *URLString =[NSString stringWithFormat:@"http://%@/api/%@/lights", self.bridgeIP, HUEUserName];
     NSURL *requestURL = [[NSURL alloc]initWithString:URLString];
     NSURLSession *session = [NSURLSession sharedSession];
     
     [[session dataTaskWithURL:requestURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSDictionary *JSONResponseDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-        NSLog(@"%@", JSONResponseDict);
         completion([JSONResponseDict allKeys]);
     }]resume];
 
@@ -85,7 +85,7 @@
         
         NSString *lightParams = [NSString stringWithFormat:@"{\"on\":true,\"sat\":255,\"bri\":255,\"hue\":%@}",hue];
         
-        NSString *URLString = [NSString stringWithFormat:@"http://%@/api/HUEWeatherAPI/lights/%@/state/", self.bridgeIP, bulbID];
+        NSString *URLString = [NSString stringWithFormat:@"http://%@/api/%@/lights/%@/state/", self.bridgeIP,HUEUserName, bulbID];
         NSData *postBody = [lightParams dataUsingEncoding:NSUTF8StringEncoding];
         NSURL *requestURL = [[NSURL alloc]initWithString:URLString];
         NSURLSession *session = [NSURLSession sharedSession];
@@ -93,7 +93,6 @@
         [request setHTTPMethod:@"PUT"];
         [request setHTTPBody:postBody];
         [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-            NSLog(@"%@, %@, %@", data, response, error);
         }]resume];
     }
 }

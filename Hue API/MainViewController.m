@@ -17,40 +17,66 @@
 @property (strong, nonatomic) CLLocation *location;
 @property (strong, nonatomic) NSNumber *currentTemp;
 @property (strong, nonatomic) HUEAPI *HUEAPI;
+@property (strong, nonatomic) NSNumber *hue;
+- (IBAction)buttonPressed:(id)sender;
 
 @end
 
 @implementation MainViewController
 
 
-- (void)viewDidLoad{
-    [super viewDidLoad];
-    [self startDeterminingUserLocation];
-    [self checkAuthorizationStatusAndPromptForBridgeButtonPress];
-    
-}
-
--(void)startDeterminingUserLocation{
-    self.locationManager = [[CLLocationManager alloc]init];
+-(void)startDeterminingUserLocation
+{
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
     self.location = [locations lastObject];
     
     [self.locationManager stopUpdatingLocation];
     
     [WeatherAPI getHighTemperatureForTodayForLatitude:self.location.coordinate.latitude Longitude:self.location.coordinate.longitude WithCompletion:^(NSNumber *temp) {
         self.currentTemp = temp;
-        [self setBackgroundColorBasedOnTemperature:self.currentTemp];
-        NSLog(@"%@", self.currentTemp);
+        [self checkAuthorizationStatusAndSetColor];
     }];
 }
 
--(void)setBackgroundColorBasedOnTemperature: (NSNumber *)temperature{
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex ==1) {
+        [self.HUEAPI authorizeNewUser];
+    }
+    else{
+        NSLog(@"Didn't click OK");
+    }
+}
+
+-(void)checkAuthorizationStatusAndSetColor
+{
+    self.HUEAPI = [[HUEAPI alloc]init];
+    [self.HUEAPI checkBridgeAuthorizationStatusWithCompletion:^(NSString *error) {
+        if ([error isEqualToString:@"unauthorized user"]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Unauthorized User" message:@"This app is not yet authorized to access your Hue bridge. Please press the bridge button then click OK" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+                
+                [alert show];
+            });
+        }
+        else{
+            [self.HUEAPI getListOfAvailableBulbsWithCompletion:^(NSArray *bulbIDS) {
+                [self setBackgroundColorBasedOnTemperature:self.currentTemp];
+                [self setColorForBulbs:bulbIDS BasedOnTemperature:self.currentTemp];
+            }];
+        }
+    }];
+}
+
+-(void)setBackgroundColorBasedOnTemperature: (NSNumber *)temperature
+{
     UIColor *backgroundColor;
     
     if ([temperature floatValue] <= 32.0) {
@@ -76,34 +102,36 @@
     });
 }
 
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex ==1) {
-        [self.HUEAPI authorizeNewUser];
+-(void)setColorForBulbs:(NSArray *)bulbs BasedOnTemperature:(NSNumber *)temperature
+{
+    if ([temperature floatValue] <= 32.0) {
+        [self.HUEAPI turnOnAvailableBulbs:bulbs andSetToHue:@46920]; //blue
     }
-    else{
-        NSLog(@"Didn't click OK");
+    else if ([temperature floatValue] > 32.0 && [temperature floatValue] < 50.0){
+        [self.HUEAPI turnOnAvailableBulbs:bulbs andSetToHue:@42000];//turquoise
+    }
+    else if ([temperature floatValue] >= 50.0 && [temperature floatValue] < 70.0){
+        [self.HUEAPI turnOnAvailableBulbs:bulbs andSetToHue:@20000];//yellow
+    }
+    else if ([temperature floatValue] >= 70.0 && [temperature floatValue] < 90.0){
+        [self.HUEAPI turnOnAvailableBulbs:bulbs andSetToHue:@10000]; //orange
+    }
+    else if ([temperature floatValue] >= 90.0){
+        [self.HUEAPI turnOnAvailableBulbs:bulbs andSetToHue:@0]; //red
     }
 }
 
--(void)checkAuthorizationStatusAndPromptForBridgeButtonPress{
-    self.HUEAPI = [[HUEAPI alloc]init];
-    [self.HUEAPI checkBridgeAuthorizationStatusWithCompletion:^(NSString *error) {
-        if ([error isEqualToString:@"unauthorized user"]) {
-            NSLog(@"%@", error);
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Unauthorized User" message:@"This app is not yet authorized to access your Hue bridge. Please press the bridge button then click OK" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-                
-                [alert show];
-            });
-        }
-        else{
-            [self.HUEAPI getListOfAvailableBulbsWithCompletion:^(NSArray *bulbIDS) {
-                [self.HUEAPI turnOnAvailableBulbs:bulbIDS andSetToHue:@1000];
-                
-            }];
-        }
+- (IBAction)buttonPressed:(id)sender
+{
+    self.locationManager = [[CLLocationManager alloc]init];
+    
+    [self startDeterminingUserLocation];
+    
+    self.location = self.locationManager.location;
+    
+    [WeatherAPI getHighTemperatureForTodayForLatitude:self.location.coordinate.latitude Longitude:self.location.coordinate.longitude WithCompletion:^(NSNumber *temp) {
+        self.currentTemp = temp;
+        [self checkAuthorizationStatusAndSetColor];
     }];
 }
 @end
