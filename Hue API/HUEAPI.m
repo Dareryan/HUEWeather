@@ -83,7 +83,7 @@
 {
     for (NSString *bulbID in bulbs) {
         
-        NSString *lightParams = @"{\"on\":true}";
+        NSString *lightParams = [NSString stringWithFormat:@"{\"on\":true,\"sat\":255,\"bri\":255,\"hue\":%@}",hue];
         
         NSString *URLString = [NSString stringWithFormat:@"http://%@/api/HUEWeatherAPI/lights/%@/state/", self.bridgeIP, bulbID];
         NSData *postBody = [lightParams dataUsingEncoding:NSUTF8StringEncoding];
