@@ -11,5 +11,8 @@
 
 @interface WeatherAPI : NSObject
 
++(void)getHighTemperatureForTodayForLatitude: (CGFloat)latitude Longitude: (CGFloat)longitude WithCompletion:(void (^)(NSNumber *))completion;
+
+
 
 @end

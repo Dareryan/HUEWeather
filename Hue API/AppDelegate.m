@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "WeatherAPI.h"
+#import "HUEAPI.h"
 
 @implementation AppDelegate
 @synthesize managedObjectContext = _managedObjectContext;
@@ -15,8 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    return YES;
+       return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

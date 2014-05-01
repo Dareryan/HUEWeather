@@ -26,6 +26,7 @@
 		45121253190EABE900C5B68C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45121252190EABE900C5B68C /* CoreLocation.framework */; };
 		45121257190EC73900C5B68C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45121256190EC73900C5B68C /* Main.storyboard */; };
 		4512125A190EC76200C5B68C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45121259190EC76200C5B68C /* MainViewController.m */; };
+		4539B8D2191286EA0075DA85 /* HUEAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4539B8D1191286EA0075DA85 /* HUEAPI.m */; };
 		45AD18FE190ED2DA00334A24 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AD18FD190ED2DA00334A24 /* Constants.m */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,8 @@
 		45121256190EC73900C5B68C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		45121258190EC76200C5B68C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		45121259190EC76200C5B68C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		4539B8D0191286EA0075DA85 /* HUEAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUEAPI.h; sourceTree = "<group>"; };
+		4539B8D1191286EA0075DA85 /* HUEAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUEAPI.m; sourceTree = "<group>"; };
 		45AD18FC190ED2DA00334A24 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		45AD18FD190ED2DA00334A24 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +140,8 @@
 				4512122C190EAADB00C5B68C /* AppDelegate.m */,
 				45121258190EC76200C5B68C /* MainViewController.h */,
 				45121259190EC76200C5B68C /* MainViewController.m */,
+				4539B8D0191286EA0075DA85 /* HUEAPI.h */,
+				4539B8D1191286EA0075DA85 /* HUEAPI.m */,
 				4512124F190EAB6700C5B68C /* WeatherAPI.h */,
 				45121250190EAB6700C5B68C /* WeatherAPI.m */,
 				45121231190EAADB00C5B68C /* Images.xcassets */,
@@ -275,6 +280,7 @@
 				45121251190EAB6700C5B68C /* WeatherAPI.m in Sources */,
 				4512122D190EAADB00C5B68C /* AppDelegate.m in Sources */,
 				4512125A190EC76200C5B68C /* MainViewController.m in Sources */,
+				4539B8D2191286EA0075DA85 /* HUEAPI.m in Sources */,
 				45121229190EAADB00C5B68C /* main.m in Sources */,
 				45AD18FE190ED2DA00334A24 /* Constants.m in Sources */,
 			);

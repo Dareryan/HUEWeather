@@ -8,26 +8,29 @@
 
 #import "MainViewController.h"
 #import "Constants.h"
+#import "WeatherAPI.h"
+#import "HUEAPI.h"
 
 @interface MainViewController ()
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *location;
+@property (strong, nonatomic) NSNumber *currentTemp;
+@property (strong, nonatomic) HUEAPI *HUEAPI;
 
 @end
 
 @implementation MainViewController
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     [self startDeterminingUserLocation];
-NSLog(@"%@", Wunderground_Key);
+    [self checkAuthorizationStatusAndPromptForBridgeButtonPress];
+    
 }
 
--(void)startDeterminingUserLocation
-{
+-(void)startDeterminingUserLocation{
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
@@ -35,11 +38,72 @@ NSLog(@"%@", Wunderground_Key);
     [self.locationManager startUpdatingLocation];
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     self.location = [locations lastObject];
-    NSLog(@"%f %f", self.location.coordinate.latitude, self.location.coordinate.longitude);
+    
     [self.locationManager stopUpdatingLocation];
+    
+    [WeatherAPI getHighTemperatureForTodayForLatitude:self.location.coordinate.latitude Longitude:self.location.coordinate.longitude WithCompletion:^(NSNumber *temp) {
+        self.currentTemp = temp;
+        [self setBackgroundColorBasedOnTemperature:self.currentTemp];
+        NSLog(@"%@", self.currentTemp);
+    }];
 }
 
+-(void)setBackgroundColorBasedOnTemperature: (NSNumber *)temperature{
+    UIColor *backgroundColor;
+    
+    if ([temperature floatValue] <= 32.0) {
+        backgroundColor = [UIColor colorWithRed:0 green:.08 blue:1 alpha:1]; //blue
+    }
+    else if ([temperature floatValue] > 32.0 && [temperature floatValue] < 50.0){
+        backgroundColor = [UIColor colorWithRed:0 green:0.78 blue:.90 alpha:1]; //turquoise
+    }
+    else if ([temperature floatValue] >= 50.0 && [temperature floatValue] < 70.0){
+        backgroundColor = [UIColor colorWithRed:1.0 green:0.97 blue:0 alpha:1]; //yellow
+    }
+    else if ([temperature floatValue] >= 70.0 && [temperature floatValue] < 90.0){
+        backgroundColor = [UIColor colorWithRed:1.0 green:0.50 blue:0.05 alpha:1]; //orange
+    }
+    else if ([temperature floatValue] >= 90.0){
+        backgroundColor = [UIColor colorWithRed:1.0 green:.08 blue:0 alpha:1]; //red
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.view setBackgroundColor:backgroundColor];
+        }];
+    });
+}
+
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex ==1) {
+        [self.HUEAPI authorizeNewUser];
+    }
+    else{
+        NSLog(@"Didn't click OK");
+    }
+}
+
+-(void)checkAuthorizationStatusAndPromptForBridgeButtonPress{
+    self.HUEAPI = [[HUEAPI alloc]init];
+    [self.HUEAPI checkBridgeAuthorizationStatusWithCompletion:^(NSString *error) {
+        if ([error isEqualToString:@"unauthorized user"]) {
+            NSLog(@"%@", error);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Unauthorized User" message:@"This app is not yet authorized to access your Hue bridge. Please press the bridge button then click OK" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+                
+                [alert show];
+            });
+        }
+        else{
+            [self.HUEAPI getListOfAvailableBulbsWithCompletion:^(NSArray *bulbIDS) {
+                [self.HUEAPI turnOnAvailableBulbs:bulbIDS andSetToHue:@1000];
+                
+            }];
+        }
+    }];
+}
 @end
